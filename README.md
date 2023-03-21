@@ -103,6 +103,9 @@
 
 ![wrrc](wrrc/301FinalWireFrame.jpg)
 
+![wrrc](wrrc/Final_UML.jpg)
+
+
 ## Database Schema
 'use strict'
 const mongoose = require('mongoose');
