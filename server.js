@@ -30,19 +30,20 @@ app.delete('/items/:id', deleteItem)
 app.put('/items/:id', putItem);
 
 async function getItems(req, res, next) {
-  //verifyUser(req, async (err, user)=> {
-    // if(err){
-    //   console.error(err);
-    //   res.send('invalid token');
-    // } else{
+  verifyUser(req, async (err, user)=> {
+    console.log(user.email);
+     if(err){
+       console.error(err);
+       res.send('invalid token');
+     } else{
       try {
-        let results = await Item.find({});
+        let results = await Item.find({email: user.email});
         res.status(200).send(results);
       } catch(err) {
         next(err);
       }
-    //}  
-  //});
+    }  
+  });
 }
 
 async function postItem (req, res, next) {
